@@ -1,0 +1,83 @@
+.box1 {
+      width: 300px;
+      height: 150px;
+      margin: 30px;             
+      border: 5px solid blue;    
+      padding: 30px;            
+      background-color:yellow;
+      justify-content: center;
+ }
+ .box2{
+  display:flex ;
+  justify-content:center;
+  align-items: center;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  padding: 15px;
+  background-color: rgb(93, 11, 187);
+  color:white;
+}
+controls {
+      background: #f0f0f0;
+      padding: 15px;
+      margin: 20px auto;
+      width: 60%;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .control {
+      margin: 10px 0;
+    }
+
+    .control label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .value {
+      margin-left: 10px;
+      color: #333;
+    }
+
+ 
+    .legend {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      border-radius: 8px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .legend div {
+      margin: 8px 0;
+    }
+    
+    .legend ul {
+    list-style-type: none; 
+    padding: 0;            
+    margin: 0;             
+}
+
+    .swatch {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+      border: 1px solid #ccc;
+    }
+
+   .swatch.margin{  
+    background-color: transparent;
+    border: 1px dotted;
+   }
+
+    .swatch.border { background: rgb(160, 157, 6); }
+    .swatch.padding { background: rgb(46, 2, 59); }
+    .swatch.content { background: #e0dbdd; }
+  
+  
