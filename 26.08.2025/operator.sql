@@ -5,12 +5,12 @@ USE CompanyDB;
 
 
 CREATE TABLE Worker (
-    WorkerID INT PRIMARY KEY AUTO_INCREMENT, -- Unique ID for each worker
-    FirstName VARCHAR(30),                   -- Worker’s first name
-    LastName VARCHAR(30),                    -- Worker’s last name
-    Salary INT,                              -- Worker’s salary
-    JoiningDate DATE,                        -- Worker’s joining date
-    Department VARCHAR(20)                   -- Department of the worker
+    WorkerID INT PRIMARY KEY AUTO_INCREMENT, 
+    FirstName VARCHAR(30),                 
+    LastName VARCHAR(30),                    
+    Salary INT,                              
+    JoiningDate DATE,                        
+    Department VARCHAR(20)                   
 );
 
 INSERT INTO Worker (FirstName, LastName, Salary, JoiningDate, Department)
