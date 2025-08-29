@@ -1,116 +1,104 @@
-CREATE DATABASE ORG1;
-SHOW DATABASES;
-USE ORG1;
-CREATE TABLE Worker (
-WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-FIRST_NAME CHAR(25),
-LAST_NAME CHAR(25),
-SALARY INT(15),
-JOINING_DATE DATETIME,
-DEPARTMENT CHAR(25)
+
+ CREATE DATABASE SchoolDB;
+USE SchoolDB;
+
+
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(30),
+    LastName VARCHAR(30),
+    DateOfBirth DATE,
+    Gender CHAR(1),
+    ClassID INT
 );
-INSERT INTO Worker
-(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE,
-DEPARTMENT) VALUES
-(001, 'Monika', 'Arora', 100000, '14-02-20
-09.00.00', 'HR'),
-(002, 'Niharika', 'Verma', 80000, '14-06-11
-09.00.00', 'Admin'),
-(003, 'Vishal', 'Singhal', 300000, '14-02-20
-09.00.00', 'HR'),
-(004, 'Amitabh', 'Singh', 500000, '14-02-20
-09.00.00', 'Admin'),
-(005, 'Vivek', 'Bhati', 500000, '14-06-11
-09.00.00', 'Admin'),
-(006, 'Vipul', 'Diwan', 200000, '14-06-11
-09.00.00', 'Account'),
-(007, 'Satish', 'Kumar', 75000, '14-01-20
-09.00.00', 'Account'),
-(008, 'Geetika', 'Chauhan', 90000, '14-04-11
-09.00.00', 'Admin');
-CREATE TABLE Bonus (
-WORKER_REF_ID INT,
-BONUS_AMOUNT INT(10),
-BONUS_DATE DATETIME,
-FOREIGN KEY (WORKER_REF_ID)
-REFERENCES Worker(WORKER_ID)
- ON DELETE CASCADE
+
+
+CREATE TABLE Class (
+    ClassID INT PRIMARY KEY AUTO_INCREMENT,
+    ClassName VARCHAR(50),
+    Section CHAR(1)
 );
-INSERT INTO Bonus
-(WORKER_REF_ID, BONUS_AMOUNT, BONUS_DATE) VALUES
-(001, 5000, '16-02-20'),
-(002, 3000, '16-06-11'),
-(003, 4000, '16-02-20'),
-(001, 4500, '16-02-20'),
-(002, 3500, '16-06-11');
-CREATE TABLE Title (
-WORKER_REF_ID INT,
-WORKER_TITLE CHAR(25),
-AFFECTED_FROM DATETIME,
-FOREIGN KEY (WORKER_REF_ID)
-REFERENCES Worker(WORKER_ID)
- ON DELETE CASCADE
+
+
+CREATE TABLE Teacher (
+    TeacherID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(30),
+    LastName VARCHAR(30),
+    Subject VARCHAR(30)
 );
-INSERT INTO Title
-(WORKER_REF_ID, WORKER_TITLE, AFFECTED_FROM) VALUES
-(001, 'Manager', '2016-02-20 00:00:00'),
-(002, 'Executive', '2016-06-11 00:00:00'),
-(008, 'Executive', '2016-06-11 00:00:00'),
-(005, 'Manager', '2016-06-11 00:00:00'),
-(004, 'Asst. Manager', '2016-06-11 00:00:00'),
-(007, 'Executive', '2016-06-11 00:00:00'),
-(006, 'Lead', '2016-06-11 00:00:00'),
-(003, 'Lead', '2016-06-11 00:00:00');
-
-select w.first_name,w.last_name,T.WORKER_TITLE
-from worker w
-join  TITLE T ON W.WORKER_ID =T.WORKER_REF_ID;
 
 
-select w.first_name,w.last_name,T.WORKER_TITLE
-from worker w
-join  TITLE T ON W.WORKER_ID =T.WORKER_REF_ID
-WHERE WORKER_TITLE='LEAD';
-        
-        
-        
-select w.first_name,w.last_name,T.WORKER_TITLE,B.BONUS_AMOUNT
-from worker w
-INNER join  TITLE T ON W.WORKER_ID =T.WORKER_REF_ID
+CREATE TABLE SubjectAllocation (
+    AllocationID INT PRIMARY KEY AUTO_INCREMENT,
+    TeacherID INT,
+    ClassID INT,
+    FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID) ON DELETE CASCADE,
+    FOREIGN KEY (ClassID) REFERENCES Class(ClassID) ON DELETE CASCADE
+);
 
-INNER JOIN BONUS B ON W.WORKER_ID = B.WORKER_REF_ID
+INSERT INTO Class (ClassName, Section) VALUES
+('10th Grade', 'A'),
+('10th Grade', 'B'),
+('11th Grade', 'A'),
+('12th Grade', 'C');
 
-WHERE WORKER_TITLE='LEAD' AND
- BONUS_AMOUNT <='5000';
- 
- 
- SELECT W.FIRST_NAME,W.LAST_NAME,T.WORKER_TITLE
- FROM WORKER w
- LEFT JOIN  TITLE T ON W.WORKER_ID = T.WORKER_REF_ID
- WHERE WORKER_TITLE ='MANAGER';
- 
- SELECT W.FIRST_NAME,W.LAST_NAME,T.WORKER_TITLE
- FROM WORKER w
- right JOIN TITLE T ON W.WORKER_ID = T.WORKER_REF_ID
- WHERE FIRST_NAME='MONIKA';
- 
-  
- 
- 
- SELECT W.FIRST_NAME,W.LAST_NAME,T.WORKER_TITLE
- FROM WORKER w
- right JOIN TITLE T ON W.WORKER_ID = T.WORKER_REF_ID
- WHERE FIRST_NAME='MONIKA';
- 
- 
-SELECT W.FIRST_NAME,W.LAST_NAME,T.WORKER_TITLE
- FROM WORKER w
- LEFT JOIN  TITLE T ON W.WORKER_ID = T.WORKER_REF_ID
- 
- UNION
- SELECT W.FIRST_NAME,W.LAST_NAME,T.WORKER_TITLE
- FROM WORKER w
- right JOIN TITLE T ON W.WORKER_ID = T.WORKER_REF_ID;
- 
- SELECT* FROM WORKER  W
- CROSS JOIN TITLE T WHERE SALARY>100000;
+
+INSERT INTO Teacher (FirstName, LastName, Subject) VALUES
+('Ravi', 'Sharma', 'Maths'),
+('Anita', 'Verma', 'Physics'),
+('Sunil', 'Kumar', 'Chemistry'),
+('Meena', 'Rajput', 'English');
+
+
+INSERT INTO Student (FirstName, LastName, DateOfBirth, Gender, ClassID) VALUES
+('Aman', 'Gupta', '2006-04-12', 'M', 1),
+('Neha', 'Singh', '2007-05-18', 'F', 2),
+('Rahul', 'Yadav', '2005-11-20', 'M', 3),
+('Priya', 'Sharma', '2004-07-22', 'F', 4);
+
+INSERT INTO SubjectAllocation (TeacherID, ClassID) VALUES
+(1, 1),
+(2, 1),
+(3, 2),
+(4, 3),
+(1, 4);
+SELECT S.FirstName, S.LastName, C.ClassName, C.Section
+FROM Student S
+JOIN Class C ON S.ClassID = C.ClassID;
+SELECT T.FirstName, T.LastName, T.Subject, C.ClassName, C.Section
+FROM Teacher T
+inner JOIN SubjectAllocation SA ON T.TeacherID = SA.TeacherID
+ inner JOIN Class C ON SA.ClassID = C.ClassID
+WHERE C.ClassName = '10th Grade' AND C.Section = 'A';
+
+
+
+SELECT S.FirstName AS Student, C.ClassName, T.FirstName AS Teacher, T.Subject
+FROM Student S
+JOIN Class C ON S.ClassID = C.ClassID
+JOIN SubjectAllocation SA ON C.ClassID = SA.ClassID
+JOIN Teacher T ON SA.TeacherID = T.TeacherID;
+SELECT C.ClassName, C.Section, COUNT(S.StudentID) AS Total_Students
+FROM Class C
+LEFT JOIN Student S ON C.ClassID = S.ClassID
+GROUP BY C.ClassName, C.Section;
+SELECT C.ClassName, C.Section, COUNT(S.StudentID) AS Total_Students
+FROM Class C
+right JOIN Student S ON C.ClassID = S.ClassID
+GROUP BY C.ClassName, C.Section;
+
+SELECT S.FirstName AS Student, T.FirstName AS Teacher
+FROM Student S
+CROSS JOIN Teacher T;
+
+
+
+
+
+
+
+
+
+
+
+
