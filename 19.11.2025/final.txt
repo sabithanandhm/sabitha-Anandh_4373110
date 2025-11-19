@@ -1,0 +1,17 @@
+final class Vehicle {             
+  final void speed() {        
+
+        System.out.println("Vehicle speed is 80km/h");
+    }
+}
+
+public class FinalExampleSingleThread {
+    public static void main(String[] args) {
+
+       
+        Vehicle v = new Vehicle();
+        v.speed();
+
+        System.out.println("Single Thread Program with final");
+    }
+}
