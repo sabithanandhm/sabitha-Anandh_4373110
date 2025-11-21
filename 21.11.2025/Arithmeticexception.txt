@@ -1,0 +1,22 @@
+package nov21;
+import java.util.Scanner;
+
+public class  Arithmeticex {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        try {
+            int r = 10 / n;   
+            System.out.println(r);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: Cannot divide by zero");
+        }
+        finally {
+            System.out.println("Finally block always runs");
+        }
+    }
+}
