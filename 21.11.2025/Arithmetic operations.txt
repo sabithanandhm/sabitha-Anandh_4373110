@@ -1,0 +1,45 @@
+package nov21;
+
+import java.util.Scanner;
+
+class operation {
+
+    void add(int a, int b) {
+        System.out.println("Addition: " + (a + b));
+    }
+
+    void sub(int a, int b) {
+        System.out.println("Subtraction: " + (a - b));
+    }
+
+    void mul(int a, int b) {
+        System.out.println("Multiplication: " + (a * b));
+    }
+
+    void div(int a, int b) {
+        if (b != 0) {
+            System.out.println("Division: " + (a / b));
+        } else {
+            System.out.println("Cannot divide by zero");
+        }
+    }
+}
+
+public class Arithmeticoperation {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        operation c = new operation();   
+
+        System.out.print("Enter first number: ");
+        int x = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int y = sc.nextInt();
+
+        c.add(x, y);
+        c.sub(x, y);
+        c.mul(x, y);
+        c.div(x, y);
+    }
+}
