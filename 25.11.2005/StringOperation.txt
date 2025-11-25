@@ -1,0 +1,20 @@
+package nov25;
+
+public class StringOperation {
+
+    public static void main(String[] args) {
+
+        String s = " Hello Java ";
+
+        System.out.println("Length: " + s.length());
+        System.out.println("charAt(2): " + s.charAt(2));
+        System.out.println("Substring: " + s.substring(1, 6));
+        System.out.println("Equals: " + s.equals("Hello"));
+        System.out.println("Equals Ignore Case: " + "JAVA".equalsIgnoreCase("java"));
+        System.out.println("Upper: " + s.toUpperCase());
+        System.out.println("Lower: " + s.toLowerCase());
+        System.out.println("Concat: " + s.concat(" World"));
+        System.out.println("Trim: " + s.trim());
+        System.out.println("Replace: " + s.replace("Java", "Programming"));
+    }
+}

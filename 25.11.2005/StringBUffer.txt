@@ -1,0 +1,17 @@
+package nov25;
+
+public class StringBufferExample {
+
+    public static void main(String[] args) {
+
+        StringBuffer sb = new StringBuffer("Hello");
+
+        System.out.println("Append: " + sb.append(" World"));
+        System.out.println("Insert: " + sb.insert(5, " Java"));
+        System.out.println("Replace: " + sb.replace(5, 10, "Code"));
+        System.out.println("Delete: " + sb.delete(5, 9));
+        System.out.println("Reverse: " + sb.reverse());
+        System.out.println("Capacity: " + sb.capacity());
+        System.out.println("ToString: " + sb.toString());
+    }
+}
