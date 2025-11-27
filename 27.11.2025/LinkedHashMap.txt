@@ -1,0 +1,16 @@
+package nov27;
+import java.util.LinkedHashMap;
+public class LinkedHashMAp1 {
+
+		    public static void main(String[] args) {
+
+		        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+		        map.put(10, "Apple");
+		        map.put(5, "Banana");
+		        map.put(20, "Cherry");
+
+		        System.out.println(map); 
+		       
+		    }
+		}

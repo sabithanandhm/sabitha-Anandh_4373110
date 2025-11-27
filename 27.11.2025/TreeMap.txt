@@ -1,0 +1,15 @@
+package nov27;
+import java.util.TreeMap;
+
+public class TreeMap1 {
+	    public static void main(String[] args) {
+
+	        TreeMap<Integer, String> tm = new TreeMap<>();
+
+	        tm.put(5, "Five");
+	        tm.put(1, "One");
+	        tm.put(3, "Three");
+
+	        System.out.println("TreeMap: " + tm);
+	    }
+	}

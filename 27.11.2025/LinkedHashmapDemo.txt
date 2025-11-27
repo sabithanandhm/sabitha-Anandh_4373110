@@ -1,0 +1,24 @@
+package nov27;
+import java.util.*;
+public class LinkedHashmapDemo {
+
+	    public static void main(String[] args) {
+
+	      
+	        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+	    
+	        map.put(101, "Apple");
+	        map.put(102, "Banana");
+	        map.put(103, "Cherry");
+	        map.put(104, "Dragonfruit");
+
+	        System.out.println("Insertion Order:"+map);
+	     
+
+	    
+	        System.out.println("\nAccess value of key 102: " + map.get(102));
+
+	  
+	    }
+}	

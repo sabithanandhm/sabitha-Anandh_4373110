@@ -1,0 +1,16 @@
+package nov27;
+import java.util.*;
+
+public class TreeSet1 {
+
+    public static void main(String[] args) {
+
+        TreeSet<String> ts = new TreeSet<>();
+
+        ts.add("Banana");
+        ts.add("Apple");
+        ts.add("Mango");
+
+        System.out.println("TreeSet: " + ts);
+    }
+}

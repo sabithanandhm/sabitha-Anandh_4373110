@@ -1,0 +1,14 @@
+package nov27;
+import java.util.LinkedHashSet;
+public class LinkedHashSet1 {
+	    public static void main(String[] args) {
+
+	        LinkedHashSet<String> lhs = new LinkedHashSet<>();
+
+	        lhs.add("One");
+	        lhs.add("Two");
+	        lhs.add("One");   
+
+	        System.out.println("LinkedHashSet: " + lhs);
+	    }
+	}
